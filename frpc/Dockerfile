@@ -11,9 +11,9 @@ RUN mkdir /tmp/frp && \
 	frp_ver="frp_$(echo ${ver} | sed -e 's/^[a-zA-Z]//g')" && \
     wget --no-check-certificate "https://github.com/fatedier/frp/releases/download/${ver}/${frp_ver}_linux_amd64.tar.gz" && \
     tar zxf ${frp_ver}_linux_amd64.tar.gz && \
-    mv /tmp/frp/${frp_ver}_linux_amd64/fprc /usr/local/bin/fprc && \
-    chmod +x /usr/local/bin/fprc && \
-    mv /tmp/frp/${frp_ver}_linux_amd64/fprc.ini /etc/fprc.ini
+    mv /tmp/frp/${frp_ver}_linux_amd64/frpc /usr/local/bin/frpc && \
+    chmod +x /usr/local/bin/frpc && \
+    mv /tmp/frp/${frp_ver}_linux_amd64/frpc.ini /etc/frpc.ini
 
 
-CMD ["fprc", "-c", "/etc/frp/fprc.ini"]
+CMD ["frpc", "-c", "/etc/frp/frpc.ini"]
